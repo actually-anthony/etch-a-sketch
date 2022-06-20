@@ -1,0 +1,11 @@
+#grid-container {
+  display: inline-grid;
+  border: solid 0.1px;
+  height: 600px;
+  width: 600px;
+}
+
+.grid-item {
+  background-color: grey;
+  box-sizing: border-box;
+}
