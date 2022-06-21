@@ -4,13 +4,46 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RPS</title>
     <script src="scripts.js" defer></script>
-
     <link rel="stylesheet" href="styles.css" />
-
-    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
   </head>
   <body>
-    <div id="grid-container"></div>
+    <h1 id="status">Player vs Computer</h1>
+
+    <div id="score">
+      <h1 id="player-score">Player: 0</h1>
+      <h1 id="computer-score">Computer: 0</h1>
+    </div>
+
+    <div class="choice-container">
+      <p>Player</p>
+      <button class="player-hand" id="rock-btn">
+        <i class="material-icons">rocket</i>
+      </button>
+      <button class="player-hand" id="paper-btn">
+        <i class="material-icons">description</i>
+      </button>
+      <button class="player-hand" id="scissors-btn">
+        <i class="material-icons">content_cut</i>
+      </button>
+    </div>
+
+    <div class="choice-container">
+      <p>Computer</p>
+      <button class="cpu-hand" id="cpu-rock-btn" disabled>
+        <i class="material-icons">rocket</i>
+      </button>
+      <button class="cpu-hand" id="cpu-paper-btn" disabled>
+        <i class="material-icons">description</i>
+      </button>
+      <button class="cpu-hand" id="cpu-scissors-btn" disabled>
+        <i class="material-icons">content_cut</i>
+      </button>
+    </div>
   </body>
 </html>
