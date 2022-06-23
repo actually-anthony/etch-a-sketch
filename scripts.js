@@ -107,6 +107,7 @@ function changeColor(gridItem) {
 }
 
 // no clue why this doesn't work
+// works when changing colours but not removing the style
 function toggleBorder() {
   document.querySelectorAll(".grid-item").forEach((item) => {
     item.style.border = "";
