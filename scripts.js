@@ -5,7 +5,9 @@ function main() {
   fillGrid(16);
 
   const slider = document.querySelector("#slider");
-  const borderBtn = document.querySelector("#border");
+  const rgbBtn = document.querySelector("#rgb-btn");
+  const eraserBtn = document.querySelector("#eraser-btn");
+  const clearBtn = document.querySelector("#clear-btn");
 
   // updates grid
   slider.addEventListener("click", () => {
@@ -17,20 +19,31 @@ function main() {
     updateSliderLabel(slider.value);
   });
 
-  const clearBtn = document.querySelector("#clear-btn");
+  // resets toggles and grid
   clearBtn.addEventListener("click", () => {
     fillGrid(slider.value);
-  });
-
-  const rgbBtn = document.querySelector("#rgb-btn");
-  rgbBtn.addEventListener("click", () => {
-    rgb = !rgb;
+    eraser = false;
+    rgb = false;
+    toggleBoxShadow(eraserBtn, eraser);
     toggleBoxShadow(rgbBtn, rgb);
   });
 
-  const eraserBtn = document.querySelector("#eraser-btn");
+  rgbBtn.addEventListener("click", () => {
+    rgb = !rgb;
+    toggleBoxShadow(rgbBtn, rgb);
+    if (eraser) {
+      eraser = !eraser;
+      toggleBoxShadow(eraserBtn, eraser);
+    }
+  });
+
   eraserBtn.addEventListener("click", () => {
     eraser = !eraser;
+    toggleBoxShadow(eraserBtn, eraser);
+    if (rgb) {
+      rgb = !rgb;
+      toggleBoxShadow(rgbBtn, rgb);
+    }
   });
 }
 
@@ -89,7 +102,6 @@ function changeColor(gridItem) {
     gridItem.style.backgroundColor = "#" + randomColor;
   } else if (eraser) {
     gridItem.style.backgroundColor = "#393e46";
-    rgb = !rgb;
   } else {
     gridItem.style.backgroundColor = defaultGridColor;
   }

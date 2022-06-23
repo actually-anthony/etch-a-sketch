@@ -49,11 +49,11 @@ body {
 }
 
 .control-button {
-  width: 150px;
+  width: 120px;
   height: auto;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  font-size: 40px;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  font-size: 30px;
   background-color: #222831;
   color: white;
 }
