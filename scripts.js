@@ -66,17 +66,16 @@ function fillGrid(columns) {
     console.log(this);
   });
 
-  //   // remove anything within grid
+  // clears the grid for new elements
   if (grid.childElementCount > 0) {
     grid.innerHTML = "";
   }
 
-  //   // add items to grid
+  //  add items to grid
   for (let i = 0; i < columns * columns; i++) {
     // repeats the node
     grid.appendChild(div.cloneNode(true));
   }
-  console.log(grid.childElementCount);
 
   document.querySelectorAll(".grid-item").forEach((item) => {
     item.addEventListener("mouseover", () => {
