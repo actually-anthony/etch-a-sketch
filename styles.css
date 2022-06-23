@@ -1,3 +1,5 @@
+/* https://colorhunt.co/palette/222831393e46ffd369eeeeee */
+
 #grid-container {
   display: inline-grid;
   border: solid 0.1px;
@@ -6,16 +8,57 @@
 }
 
 .grid-item {
-  background-color: grey;
+  background-color: #393e46;
   box-sizing: border-box;
-  /* border: 0.1px solid black; */
+  border: 0.1px solid black;
 }
 
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #222831;
+  color: white;
 }
 
-#slider {
+#main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#control-panel {
+  display: flex;
+  justify-content: space-around;
+  border: 0.1px solid white;
+  margin-bottom: 10px;
+  width: 125px;
+}
+
+#sketcher {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#control-panel {
+  display: flex;
+  align-items: center;
+  width: 600px;
+  background-color: #393e46;
+}
+
+.control-button {
+  width: 150px;
+  height: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 40px;
+  background-color: #222831;
+  color: white;
+}
+
+h1 {
+  font-size: 75px;
+  margin: 0;
 }

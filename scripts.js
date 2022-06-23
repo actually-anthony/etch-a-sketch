@@ -1,7 +1,11 @@
+let rgb = false;
+let eraser = false;
+
 function main() {
   fillGrid(16);
 
   const slider = document.querySelector("#slider");
+  const borderBtn = document.querySelector("#border");
 
   // updates grid
   slider.addEventListener("click", () => {
@@ -12,25 +16,34 @@ function main() {
   slider.addEventListener("mousemove", () => {
     updateSliderLabel(slider.value);
   });
+
+  const clearBtn = document.querySelector("#clear-btn");
+  clearBtn.addEventListener("click", () => {
+    fillGrid(slider.value);
+  });
+
+  const rgbBtn = document.querySelector("#rgb-btn");
+  rgbBtn.addEventListener("click", () => {
+    rgb = !rgb;
+    toggleBoxShadow(rgbBtn, rgb);
+  });
+
+  const eraserBtn = document.querySelector("#eraser-btn");
+  eraserBtn.addEventListener("click", () => {
+    eraser = !eraser;
+  });
+}
+
+function toggleBoxShadow(button, activated) {
+  if (activated) {
+    button.style.boxShadow = "0px 0px 20px #FDD369";
+  } else [(button.style.boxShadow = "")];
 }
 
 function fillGrid(columns) {
   const grid = document.querySelector("#grid-container");
   grid.style.gridTemplateColumns = "repeat(" + columns + ",auto)";
   grid.style.gridTemplateRows = "repeat(" + columns + ",auto)";
-
-  //   const test = document.createElement("div");
-  //   test.className = "test-item";
-
-  //   test.addEventListener("mousemove", () => {
-  //     changeColor(test);
-  //     console.log(test);
-  //   });
-
-  //   console.log(test);
-
-  //   grid.appendChild(test);
-  //   grid.appendChild(test.cloneNode(true));
 
   const div = document.createElement("div");
   div.className = "grid-item";
@@ -53,7 +66,7 @@ function fillGrid(columns) {
   console.log(grid.childElementCount);
 
   document.querySelectorAll(".grid-item").forEach((item) => {
-    item.addEventListener("mousemove", () => {
+    item.addEventListener("mouseover", () => {
       changeColor(item);
     });
   });
@@ -65,7 +78,28 @@ function updateSliderLabel(columns) {
 }
 
 function changeColor(gridItem) {
-  gridItem.style.backgroundColor = "black";
+  const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+
+  const defaultGridColor = "#FFD369";
+
+  console.log(eraser);
+
+  if (rgb) {
+    // changes previous RGB item
+    gridItem.style.backgroundColor = "#" + randomColor;
+  } else if (eraser) {
+    gridItem.style.backgroundColor = "#393e46";
+    rgb = !rgb;
+  } else {
+    gridItem.style.backgroundColor = defaultGridColor;
+  }
+}
+
+// no clue why this doesn't work
+function toggleBorder() {
+  document.querySelectorAll(".grid-item").forEach((item) => {
+    item.style.border = "";
+  });
 }
 
 main();

@@ -12,8 +12,22 @@
   </head>
   <body>
     <h1>Etch-A-Sketch</h1>
-    <div id="grid-container"></div>
-    <input id="slider" type="range" min="1" max="100" value="16" />
-    <div id="slider-value">16 x 16</div>
+    <div id="main">
+      <div id="control-panel">
+        <button id="rgb-btn" class="control-button" type="button">RGB</button>
+        <button id="eraser-btn" class="control-button" type="button">
+          Eraser
+        </button>
+
+        <button id="clear-btn" class="control-button" type="button">
+          Clear
+        </button>
+      </div>
+      <div id="sketcher">
+        <div id="grid-container"></div>
+        <input id="slider" type="range" min="1" max="100" value="16" />
+        <div id="slider-value">16 x 16</div>
+      </div>
+    </div>
   </body>
 </html>
